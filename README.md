@@ -22,3 +22,6 @@ I've also included a dockerfile for easy deployment. To build and run the docker
 ```docker build -t maths-app .```
 To run it:
 ```docker run -p 8501:8501 maths-app```
+
+## Acknowledge
+I'd like to thank [wblachowksi](https://github.com/wblachowski) for the [dataset](https://github.com/wblachowski/bhmsds?tab=readme-ov-file)
