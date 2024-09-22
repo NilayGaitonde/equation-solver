@@ -160,14 +160,15 @@ def predict(image):
     '5',
     'plus',
     '4']
-    device = torch.device("mps" if torch.backends.mps.is_available else "cpu")
+    # device = torch.device("mps" if torch.backends.mps.is_available else "cpu")
+    device = torch.device("cpu")
     # base_model = HandwritingRecogniser()
     # model = ExtendedHandwrittingRecognition(base_model,len(classes)).to(device)
     # model.load_state_dict(torch.load("app/ai/models/combinedModel2.pth"))
     model = HandwritingRecogniser().to(device)
-    model.load_state_dict(torch.load("app/ai/models/model5.pth"))
+    model.load_state_dict(torch.load("app/ai/models/model5_cpu.pth"))
     model.eval()
-    plt.imsave(arr=image[0][0],cmap="gray",fname="app/ai/imgs/image.png")
+    # plt.imsave(arr=image[0][0],cmap="gray",fname="app/ai/imgs/image.png")
     image = image.to(device)
     with torch.no_grad():
         logits = model(image)
